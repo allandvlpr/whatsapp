@@ -23,7 +23,7 @@ client.on('ready', async()=>{
 
 
     setInterval(async()=>{
-        await sendMessage("5521986113683@c.us", "testando msg")
+        await client.sendMessage("5521986113683@c.us", "testando msg")
         console.log("mensgam enviada a cada 3 segundos")
     }, 3000)
 })
