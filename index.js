@@ -13,5 +13,11 @@ client.on('qr', qr=>qrcode.generate(qr, {small:true}))
 
 client.on('ready', ()=>console.log("whatsapp totalmente pronto para uso"))
 
+client.on('message', msg=>{
+    if(msg.body === "plano"){
+        msg.reply("A Leve Saúde, o melhor plano da sua vida !")
+    }
+})
+
 
 client.initialize()
