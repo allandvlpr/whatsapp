@@ -16,7 +16,7 @@ client.on('ready', async()=>{
     const chat = await client.getChats()
     chat.map(item=>{
         if(item.isGroup){
-            console.log(item.name)
+            console.log(item.name, item.id._serialized)
         }
     })
 })
