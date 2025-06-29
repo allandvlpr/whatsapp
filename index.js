@@ -12,13 +12,20 @@ const client = new Client({
 client.on('qr', qr=>qrcode.generate(qr, {small:true}))
 
 client.on('ready', async()=>{
+
     console.log("bot funcionando \n\n")
-    const chat = await client.getChats()
-    chat.map(item=>{
-        if(item.isGroup){
-            console.log(item.name, item.id._serialized)
-        }
-    })
+    // const chat = await client.getChats()
+    // chat.map(item=>{
+    //     if(item.isGroup){
+    //         console.log(item.name, item.id._serialized)
+    //     }
+    // })
+
+
+    setInterval(async()=>{
+        await sendMessage("5521986113683@c.us", "testando msg")
+        console.log("mensgam enviada a cada 3 segundos")
+    }, 3000)
 })
 
 
