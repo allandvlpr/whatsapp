@@ -11,16 +11,24 @@ const client = new Client({
 
 client.on('qr', qr=>qrcode.generate(qr, {small:true}))
 
-client.on('ready', ()=>console.log("whatsapp totalmente pronto para uso"))
-
-
-
-client.on('message', async(msg)=>{
-    if(msg.body == "plano" || msg.body == "Plano"){
-        const media = MessageMedia.fromFilePath('./criativo.jpg')
-        await client.sendMessage(msg.from, media, {caption:"Temos planos ambulatoriais e completos, qual você prefere?"})
-        console.log("mensagem com midia enviada com sucesso")
-    }
+client.on('ready', async()=>{
+    console.log("bot funcionando \n\n")
+    const chat = await client.getChats()
+    chat.map(item=>{
+        if(item.isGroup){
+            console.log(item.name)
+        }
+    })
 })
+
+
+
+// client.on('message', async(msg)=>{
+//     if(msg.body == "plano" || msg.body == "Plano"){
+//         const media = MessageMedia.fromFilePath('./criativo.jpg')
+//         await client.sendMessage(msg.from, media, {caption:"Temos planos ambulatoriais e completos, qual você prefere?"})
+//         console.log("mensagem com midia enviada com sucesso")
+//     }
+// })
 
 client.initialize()
