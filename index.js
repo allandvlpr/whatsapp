@@ -38,6 +38,15 @@ client.on('ready', async () => {
 
     console.log("bot funcionando\n")
 
+	//const epa = await client.getChats()
+	//epa.map(item=>{
+	//	if(item.isGroup){
+	//		console.log(item.name, item.id._serialized)
+	//	}
+//	})
+
+    
+
     // xlsx('./leads.xlsx', {
     //     schema: {
     //         'NOME': {
@@ -66,20 +75,21 @@ client.on('ready', async () => {
 
 
      const grupos = [
-         '120363263565615003@g.us',
          '120363276145647961@g.us',
-         '120363315933663865@g.us',
-         '120363365271228729@g.us',
-         '120363413005097742@g.us',
-         '120363399454185415@g.us',
-         '120363416232648389@g.us',
-         '120363357248655142@g.us',
-         '120363400625158166@g.us',
-         '120363037513854823@g.us',
+         '120363400625158166@g.us', 
          '120363021912106993@g.us',
-         '120363367809699487@g.us',
+         '120363418587386297@g.us',
+         '120363365271228729@g.us', 
+         '120363399514872863@g.us',
+         '120363315933663865@g.us',
          '120363391574653154@g.us',
-         '120363020331141303@g.us'
+         '120363367809699487@g.us',  
+         '120363020493384821@g.us',
+         '120363023501621990@g.us',
+         '120363020331141303@g.us',
+         '120363263565615003@g.us',   
+         '120363413005097742@g.us',
+         '120363037513854823@g.us'
     ]
 
 
@@ -91,15 +101,15 @@ client.on('ready', async () => {
          if (!intervalo[item]) {
              intervalo[item] = setInterval(async () => {
                  try {
-					const media = MessageMedia.fromFilePath('./criativo.jpg')
-                     await client.sendMessage(item,media,{caption:"PLANO DE SAÚDE SEM CARÊNCIA PARA CONSULTAS, EXAMES, URGÊNCIA E EMERGÊNCIA"})
+					const media = MessageMedia.fromFilePath('./todos_valores.jpg')
+                     await client.sendMessage(item,media,{caption:"🚨 Descubra *PLANOS DE SAÚDE* com *ZERO TAXA DE ADESÃO* e *SEM CARÊNCIA* para consultas e exames!\n\n🚨 Opções para planos individuais, familiares, MEI e CNPJ.\n\n📲 FAÇA UMA SIMULAÇÃO : 21964987625"})
   	                 console.log(`Grupo ${ep.name} foi enviado`)
                  }
                  catch (error) {
                      console.log(error.message)
                  }
 
-             }, 10800000)
+             },1800000)
          }
 
     })
@@ -122,12 +132,7 @@ client.on('ready', async () => {
 
 
 client.on('message', async(msg)=>{
-    if(msg.hasMedia){
-        const epa = await msg.downloadMedia()
-        console.log(epa.filesize, epa.filename, epa.mimetype)
-    }
-        
-    
+  //  await msg.reply('PLANO DE SAÚDE INDIVIDUAL, MEI E CNPJ')
 })
 
 
